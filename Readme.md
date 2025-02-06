@@ -82,11 +82,11 @@ These arguments allow you to specify the model name, learning rate, number of ep
 ### Running Inference
 To perform inference using a trained model, run:
 ```bash
-python src/inference.py --model [v1|v2|v3|ensemble] --csv path/to/csv/savefile
+python src/inference.py --model [v1|v2|v3|v4|v5|ensemble] --csv path/to/csv/savefile
 ```
-Replace `[v1|v2|v3|ensemble]` with the desired model version (best performing model is the ensemble)
+Replace `[v1|v2|v3|v4|v5|ensemble]` with the desired model version (best performing model is the ensemble)
 
-- `--model`: Name of the model file to be used for inference (choose between `v1,v2,v3,ensemble`)
+- `--model`: Name of the model file to be used for inference (choose between `v1,v2,v3,v4,v5,ensemble`)
 - `--threshold`: The threshold value you want to use
 - `--csv`: The path to save the inference results for the test set as a csv (default:`inference_results.csv`)
 - `--override`: If provided as True, the model will use the threshold provided in the command line argument instead of the best threshold (default: `False`)
