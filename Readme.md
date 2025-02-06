@@ -30,7 +30,7 @@ To set up the project, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/Cancer-Detection-Project.git
+   git clone https://github.com/DragonPG2000/Cancer-Detection-Project.git
    ```
 
 2. Navigate into the project directory:
@@ -65,13 +65,7 @@ python voxel_viz.py
 ```
 
 ### Model Configuration
-Modify `model_configs.py` to change model hyperparameters and settings.
+Modify `model_configs.py` to change thresholds for the models' inference
 
 ## Results
-Inference results are stored in `inference_results.md`, and other results are logged in `results.md`.
-
-## Contributing
-If you'd like to contribute, please fork the repository and create a pull request with your changes.
-
-## License
-This project is licensed under the MIT License.
+Inference predictions of the best model are stored in `inference_results.csv`, and other results are logged in `results.md`.
