@@ -89,7 +89,9 @@ Replace `[v1|v2|v3|ensemble]` with the desired model version (best performing mo
 - `--model`: Name of the model file to be used for inference (choose between `v1,v2,v3,ensemble`)
 - `--threshold`: The threshold value you want to use
 - `--csv`: The path to save the inference results for the test set as a csv (default:`inference_results.csv`)
-- `--override`: If provided as True, the model will use the threshold provided in the command line argument instead of the best threshold (default: `False`)
+- `--override`: If provided as True, the model will use the threshold provided in the command line argument 
+instead of the best threshold (default: `False`)
+- `--hairremoval`: If provided as True, Hair removal will be applied to all images (Default: `False`)
 
 Example command: 
 ```bash
@@ -118,3 +120,5 @@ jupyter notebook results.ipynb
 ```
 
 Other results and logs are documented in `results.md`.
+
+For more details about the hair removal process, please refer to the `hair_removal.ipynb` notebook.
