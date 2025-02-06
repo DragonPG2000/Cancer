@@ -94,7 +94,7 @@ Inference results are stored in the `results/` directory as CSV files:
 - `inference_v3.csv`
 
 ### Visualizing Results
-To analyze results and visualize data, use:
+To analyze results (metrics and visualizations from the test set) use:
 ```bash
 jupyter notebook results.ipynb
 ```
