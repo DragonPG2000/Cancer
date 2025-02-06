@@ -91,7 +91,7 @@ Replace `[v1|v2|v3|v4|v5|ensemble]` with the desired model version (best perform
 - `--csv`: The path to save the inference results for the test set as a csv (default:`inference_results.csv`)
 - `--override`: If provided as True, the model will use the threshold provided in the command line argument 
 instead of the best threshold (default: `False`)
-- `--hairremoval`: If provided as True, Hair removal will be applied to all images (Default: `False`)
+- `--hair_removal`: If provided as True, Hair removal will be applied to all images (Default: `False`)
 
 Example command: 
 ```bash
