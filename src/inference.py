@@ -106,6 +106,7 @@ argument_parser = argparse.ArgumentParser()
 argument_parser.add_argument('--model', type=str, required=True, help='Model version to use for inference', choices=['v1', 'v2', 'v3','ensemble'])
 argument_parser.add_argument('--threshold', type=float, default=0.5, help='Threshold for classification')
 argument_parser.add_argument('--csv', type=str, default='inference_results.csv', help='Path to save inference results')
+argument_parser.add_argument('--override', type=bool, default=False, help='Override model threshold with argument')
 args = argument_parser.parse_args()
 
 model_params = model_configs[args.model]
@@ -115,7 +116,7 @@ if args.model in ['v1', 'v2', 'v3']:
 else:
     model = load_ensemble_model(args)
 # Check if threshold is provided in the model config
-if 'threshold' in model_params:
+if 'threshold' in model_params and not args.override:
     threshold = model_params['threshold']
     print(f'Using threshold from config: {threshold}')
 else:
