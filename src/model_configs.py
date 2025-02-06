@@ -73,6 +73,19 @@ model_configs = {
         'hair_removal': False   
     },
 
+    'v4': {
+        'input_shape': (224, 224, 3),
+        'num_classes': 1,
+        'batch_size': 32,
+        'epochs': 5,
+        'learning_rate': 0.001,
+        'optimizer': 'adam',
+        'loss_function': 'bce',
+        'model': 'ResNet-18 (ImageNet Pretrained)',
+        'model_path': 'models/model_v4.pth',
+        'threshold': 0.45,
+    },
+
     'ensemble': {
         'models': ['v1', 'v2', 'v3'],
         'threshold': 0.4,
