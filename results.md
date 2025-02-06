@@ -30,6 +30,7 @@ This project focuses on detecting cancer using various deep learning models. The
 - **Learning Rate**: 0.001
 - **Epochs**: 5
 - **Threshold**: 0.55
+- **Hair Removal**: False
 - **Metrics**:
   - **F1 Score**: 0.9258713794796269
   - **Precision**: 0.9093539054966249
@@ -43,6 +44,7 @@ This project focuses on detecting cancer using various deep learning models. The
 - **Learning Rate**: 0.001
 - **Epochs**: 5
 - **Threshold**: 0.45
+- **Hair Removal**: False
 - **Metrics**:
   - **F1 Score**: 0.9211045364891519
   - **Precision**: 0.9085603112840467
@@ -56,6 +58,7 @@ This project focuses on detecting cancer using various deep learning models. The
 - **Learning Rate**: 0.001
 - **Epochs**: 5
 - **Threshold**: 0.28
+- **Hair Removal**: False
 - **Metrics**:
   - **F1 Score**: 0.942495126705653
   - **Precision**: 0.9192015209125475
