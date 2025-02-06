@@ -86,6 +86,7 @@ Replace `[v1|v2|v3|ensemble]` with the desired model version (best performing mo
 - `--model`: Name of the model file to be used for inference (choose between `v1,v2,v3,ensemble`)
 - `--threshold`: The threshold value you want to use
 - `--csv`: The path to save the inference results for the test set as a csv (default:`inference_results.csv`)
+- `--override`: If provided as True, the model will use the threshold provided in the command line argument instead of the best threshold (default: `False`)
 
 Example command: 
 ```bash
@@ -95,7 +96,7 @@ python src/inference.py --model ensemble --csv_path results/inference_ensemble.c
 ### Model Configuration
 The file `model_configs.py` contains the information on what hyperparameters were used for training each model
 
-Note: If the threshold is defined in the `model_configs.py` the inference script will use the threshold defined there directly
+Note: If the threshold is defined in the `model_configs.py` the inference script will use the threshold defined there directly. Use `--override` argument if you want to test with other threshold values. 
 
 ## Results
 Inference results are stored in the `results/` directory as CSV files:
