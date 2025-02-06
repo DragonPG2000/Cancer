@@ -60,6 +60,32 @@ This project focuses on detecting cancer using various deep learning models. The
   - **Recall**: 0.967
   - **Accuracy**: 0.941
 
+### Model_v4
+- **Model**: ResNet-18 (ImageNet Pretrained)
+- **Loss Function**: Cross Entropy Loss
+- **Optimizer**: Adam
+- **Learning Rate**: 0.001
+- **Epochs**: 5
+- **Threshold**: 0.5
+- **Metrics**:
+  - **F1 Score**: 0.8519537699504678
+  - **Precision**: 0.9473684210526315
+  - **Recall**: 0.774
+  - **Accuracy**: 0.8655
+
+  ### Model_v5
+  - **Model**: ResNet-18 (ImageNet Pretrained)
+  - **Loss Function**: Cross Entropy Loss
+  - **Optimizer**: Adam
+  - **Learning Rate**: 0.001
+  - **Epochs**: 5
+  - **Threshold**: 0.5
+  - **Metrics**:
+    - **F1 Score**: 0.9473684210526315
+    - **Precision**: 0.9322362052274927
+    - **Recall**: 0.963
+    - **Accuracy**: 0.9465
+
 ### Ensemble Model
 - **Models**: v1, v2, v3
 - **Threshold**: 0.5
@@ -71,9 +97,13 @@ This project focuses on detecting cancer using various deep learning models. The
 
 ## Summary Table
 
-| Model           | F1 Score          | Precision         | Recall           | Accuracy         | Threshold |
-|-----------------|-------------------|-------------------|------------------|------------------|-----------|
-| Model_v1        | 0.9258713794796269| 0.9093539054966249| 0.943            | 0.9245           | 0.55      |
-| Model_v2        | 0.9211045364891519| 0.9085603112840467| 0.934            | 0.92             | 0.45      |
-| Model_v3        | 0.942495126705653 | 0.9192015209125475| 0.967            | 0.941            | 0.28      |
-| Ensemble Model  | 0.9472111553784861| 0.9434523809523809| 0.951            | 0.947            | 0.5       |
+| Model           | F1 Score          | Precision         | Recall           | Accuracy         | Threshold | Training Time Hair removal | Testing Time Hair Removal |
+|-----------------|-------------------|-------------------|------------------|------------------|-----------|-------------------|------------------|
+| Model_v1        | 0.9258713794796269| 0.9093539054966249| 0.943            | 0.9245           | 0.55      | No               | No              |
+| Model_v2        | 0.9211045364891519| 0.9085603112840467| 0.934            | 0.92             | 0.45      | No               | No              |
+| Model_v3        | 0.942495126705653 | 0.9192015209125475| 0.967            | 0.941            | 0.28      | No               | No             |
+| Model_v4       | 0.8519537699504678 | 0.9473684210526315 | 0.774 | 0.8655 | 0.45 | Yes | Yes |
+| Model_v5 (No Hair removal at test time) | 0.897 | 0.897 | 0.897 | 0.897 | 0.45 | Yes | No |   |
+| Ensemble Model  | 0.9472111553784861| 0.9434523809523809| 0.951            | 0.947            | 0.5       | No               | No              |
+
+For more details about the hair removal process, please refer to the `hair_removal.ipynb` notebook.

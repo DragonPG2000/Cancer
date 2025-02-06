@@ -5,6 +5,9 @@ from torch.utils.data import DataLoader
 import torch.nn as nn
 import torch.optim as optim
 from focal_loss import FocalLoss
+from hair_removal import hair_remove
+import numpy as np
+from PIL import Image
 
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 from tqdm import tqdm
@@ -13,12 +16,14 @@ import argparse
 # Define data transformations
 data_transforms = {
     'train': transforms.Compose([
+        transforms.Lambda(lambda img: Image.fromarray(hair_remove(np.array(img)))),
         transforms.Resize((224, 224)),
         transforms.RandomHorizontalFlip(),
         transforms.ToTensor(),
         transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
     ]),
     'test': transforms.Compose([
+        transforms.Lambda(lambda img: Image.fromarray(hair_remove(np.array(img)))),
         transforms.Resize((224, 224)),
         transforms.ToTensor(),
         transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
@@ -26,7 +31,7 @@ data_transforms = {
 }
 
 # Load datasets
-data_dir = '/home/skumar704/cancer/ml_takehome_dataset'
+data_dir = 'ml_takehome_dataset'
 image_datasets = {x: datasets.ImageFolder(root=f'{data_dir}/{x}', transform=data_transforms[x]) for x in ['train', 'test']}
 dataloaders = {x: DataLoader(image_datasets[x], batch_size=32, shuffle=True, num_workers=4) for x in ['train', 'test']}
 

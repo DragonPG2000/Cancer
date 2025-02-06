@@ -7,21 +7,14 @@ import re
 import argparse
 
 from model_configs import model_configs
+from hair_removal import hair_remove
+from PIL import Image
+import numpy as np
 
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 import csv
 
-# Define data transformations
-data_transforms = transforms.Compose([
-    transforms.Resize((224, 224)),
-    transforms.ToTensor(),
-    transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
-])
 
-# Load test dataset
-data_dir = 'ml_takehome_dataset/test'
-test_dataset = datasets.ImageFolder(root=data_dir, transform=data_transforms)
-test_dataloader = DataLoader(test_dataset, batch_size=32, shuffle=False, num_workers=4)
 
 # Load the model
 def load_model(model_path):
@@ -103,15 +96,38 @@ def run_inference(models, dataloader, threshold=0.5,csv_path='inference_results.
 
 
 argument_parser = argparse.ArgumentParser()
-argument_parser.add_argument('--model', type=str, required=True, help='Model version to use for inference', choices=['v1', 'v2', 'v3','ensemble'])
+argument_parser.add_argument('--model', type=str, required=True, help='Model version to use for inference', choices=['v1', 'v2', 'v3','v4','v5','ensemble'])
 argument_parser.add_argument('--threshold', type=float, default=0.5, help='Threshold for classification')
 argument_parser.add_argument('--csv', type=str, default='inference_results.csv', help='Path to save inference results')
 argument_parser.add_argument('--override', type=bool, default=False, help='Override model threshold with argument')
+argument_parser.add_argument('--hair_removal', type=bool, default=False, help='Remove hair from images')
 args = argument_parser.parse_args()
 
 model_params = model_configs[args.model]
 
-if args.model in ['v1', 'v2', 'v3']:
+if not args.hair_removal and model_params['hair_removal'] == False:
+    # Define data transformations
+    data_transforms = transforms.Compose([
+    transforms.Resize((224, 224)),
+    transforms.ToTensor(),
+    transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])])
+
+else:
+    print("Test time Hair removal")
+    data_transforms = transforms.Compose([
+        transforms.Lambda(lambda img: Image.fromarray(hair_remove(np.array(img)))),
+        transforms.Resize((224, 224)),
+        transforms.RandomHorizontalFlip(),
+        transforms.ToTensor(),
+        transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
+    ])
+
+# Load test dataset
+data_dir = 'ml_takehome_dataset/test'
+test_dataset = datasets.ImageFolder(root=data_dir, transform=data_transforms)
+test_dataloader = DataLoader(test_dataset, batch_size=32, shuffle=False, num_workers=4)
+
+if args.model in ['v1', 'v2', 'v3','v4','v5']:
     model = get_model(model_configs[args.model])
 else:
     model = load_ensemble_model(args)
