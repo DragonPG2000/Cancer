@@ -18,11 +18,14 @@ Cancer-Detection-Project/
 │   ├── model_v1.pth
 │   ├── model_v2.pth
 │   ├── model_v3.pth
+│   ├── model_v4.pth
 ├── results/
 │   ├── inference_ensemble.csv
 │   ├── inference_v1.csv
 │   ├── inference_v2.csv
 │   ├── inference_v3.csv
+│   ├── inference_v4.csv
+│   ├── inference_v5.csv
 ├── src/
 │   ├── __pycache__/
 │   ├── focal_loss.py
@@ -104,6 +107,9 @@ Inference results are stored in the `results/` directory as CSV files:
 - `inference_v1.csv`
 - `inference_v2.csv`
 - `inference_v3.csv`
+- `inference_v4.csv`
+- `inference_v5.csv`
+- `inference_ensemble.csv`
 
 ### Visualizing Results
 To analyze results (metrics and visualizations from the test set) use:
