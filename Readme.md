@@ -41,12 +41,12 @@ To set up the project, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/DragonPG2000/Cancer-Detection-Project.git
+   git clone https://github.com/DragonPG2000/Cancer.git
    ```
 
 2. Navigate into the project directory:
    ```bash
-   cd Cancer-Detection-Project
+   cd Cancer
    ```
 
 3. Set up the environment using the `cancer_detection.yml` file:
