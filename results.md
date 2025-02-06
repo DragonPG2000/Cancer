@@ -6,11 +6,13 @@ This project focuses on detecting cancer using various deep learning models. The
 ## Preprocessing
 - **Data Transformations**:
   - **Train**:
+    - Hair Removal (Optional)
     - Resize to (224, 224)
     - Random Horizontal Flip
     - Convert to Tensor
     - Normalize with mean [0.485, 0.456, 0.406] and std [0.229, 0.224, 0.225]
   - **Test**:
+    - Hair Removal (Optional)
     - Resize to (224, 224)
     - Convert to Tensor
     - Normalize with mean [0.485, 0.456, 0.406] and std [0.229, 0.224, 0.225]
@@ -66,7 +68,8 @@ This project focuses on detecting cancer using various deep learning models. The
 - **Optimizer**: Adam
 - **Learning Rate**: 0.001
 - **Epochs**: 5
-- **Threshold**: 0.5
+- **Threshold**: 0.45
+- **Hair Removal**: True
 - **Metrics**:
   - **F1 Score**: 0.8519537699504678
   - **Precision**: 0.9473684210526315
@@ -79,12 +82,13 @@ This project focuses on detecting cancer using various deep learning models. The
   - **Optimizer**: Adam
   - **Learning Rate**: 0.001
   - **Epochs**: 5
-  - **Threshold**: 0.5
+  - **Threshold**: 0.45
+  - **Hair Removal**: False
   - **Metrics**:
-    - **F1 Score**: 0.9473684210526315
-    - **Precision**: 0.9322362052274927
-    - **Recall**: 0.963
-    - **Accuracy**: 0.9465
+    - **F1 Score**: 0.897
+    - **Precision**: 0.897
+    - **Recall**: 0.897
+    - **Accuracy**: 0.897
 
 ### Ensemble Model
 - **Models**: v1, v2, v3
